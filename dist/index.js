@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -39601,7 +39602,51 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
-/***/ 1427:
+/***/ 6144:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var function_1 = __nccwpck_require__(6985);
+var A = __importStar(__nccwpck_require__(3834));
+var TE = __importStar(__nccwpck_require__(437));
+var T = __importStar(__nccwpck_require__(2664));
+var scraper_1 = __importDefault(__nccwpck_require__(5344));
+var lidwoord_1 = __importDefault(__nccwpck_require__(5663));
+var getArgs = (0, function_1.pipe)(process.argv, function (args) { return args.slice(2); });
+var main = function (words) {
+    var arrayOfTe = (0, function_1.pipe)(words, A.map((0, function_1.flow)(scraper_1.default, TE.chainW((0, function_1.flow)(lidwoord_1.default, TE.fromEither)))));
+    return (0, function_1.pipe)(A.sequence(TE.ApplicativePar)(arrayOfTe), TE.foldW(T.of, T.of));
+};
+main(getArgs)().then(function (res) { return console.log(res); });
+
+
+/***/ }),
+
+/***/ 5663:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -39640,7 +39685,7 @@ exports.default = validateLidwoord;
 
 /***/ }),
 
-/***/ 8493:
+/***/ 5344:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -39694,50 +39739,6 @@ var parseFromUrl = function (url) {
 };
 var scrapeFromZnw = (0, function_1.flow)(makeUrlFromZnw, parseFromUrl);
 exports.default = scrapeFromZnw;
-
-
-/***/ }),
-
-/***/ 6144:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var function_1 = __nccwpck_require__(6985);
-var A = __importStar(__nccwpck_require__(3834));
-var TE = __importStar(__nccwpck_require__(437));
-var T = __importStar(__nccwpck_require__(2664));
-var scraper_1 = __importDefault(__nccwpck_require__(8493));
-var lidwoord_1 = __importDefault(__nccwpck_require__(1427));
-var getArgs = (0, function_1.pipe)(process.argv, function (args) { return args.slice(2); });
-var main = function (words) {
-    var arrayOfTe = (0, function_1.pipe)(words, A.map((0, function_1.flow)(scraper_1.default, TE.chainW((0, function_1.flow)(lidwoord_1.default, TE.fromEither)))));
-    return (0, function_1.pipe)(A.sequence(TE.ApplicativePar)(arrayOfTe), TE.foldW(T.of, T.of));
-};
-main(getArgs)().then(function (res) { return console.log(res); });
 
 
 /***/ }),
